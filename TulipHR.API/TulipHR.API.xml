@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TulipHR.API</name>
+    </assembly>
+    <members>
+        <member name="M:TulipHR.API.Controllers.EmployeesController.GetEmployees">
+            <summary>
+            Get list of employees
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TulipHR.API.Controllers.EmployeesController.GetEmployee(System.Int32)">
+            <summary>
+            Get employee detail by Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TulipHR.API.Controllers.EmployeesController.UpdateEmployee(TulipHR.API.Models.EmployeeDTO)">
+            <summary>
+            Update employee
+            </summary>
+            <param name="employee"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TulipHR.API.Controllers.PositionsController.GetPositions">
+            <summary>
+            Get list of positions with employee detail
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:TulipHR.API.Controllers.PositionsController.GetPosition(System.Int32)">
+            <summary>
+            Get position by Id
+            </summary>
+            <param name="id">The id of the position to get</param>
+            <returns></returns>
+        </member>
+        <member name="M:TulipHR.API.Controllers.PositionsController.DeletePosition(System.Int32)">
+            <summary>
+            Delete position by Id
+            </summary>
+            <param name="id">The id of the position to be deleted</param>
+            <returns></returns>
+        </member>
+        <member name="M:TulipHR.API.Controllers.PositionsController.PostPosition(TulipHR.API.Models.PositionCreationDto)">
+            <summary>
+            Create new position
+            </summary>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TulipHR.API.Controllers.PositionsController.GetHierarchyAsync">
+            <summary>
+            Get position hierarhcy
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:TulipHR.API.Entities.Position">
+            <summary>
+            Entity class reprsenting Position table
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Entities.Position.Id">
+            <summary>
+            Unique Id of the Position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Entities.Position.Title">
+            <summary>
+            The Title of the Position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Entities.Position.Number">
+            <summary>
+            The number assigned to the Position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Entities.Position.ManagerPositionId">
+             <summary>
+            The Id of the manager position
+             </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.EmployeeDTO.Id">
+            <summary>
+            The Id of the Employee
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.EmployeeDTO.FirstName">
+            <summary>
+            The first name of the employee
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.EmployeeDTO.LastName">
+            <summary>
+            The last name of the employee
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.EmployeeDTO.Number">
+            <summary>
+            The employee number
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.EmployeeDTO.PositionId">
+             <summary>
+            The Id of the position
+             </summary>
+        </member>
+        <member name="T:TulipHR.API.Models.OrgTreeNode`1">
+            <summary>
+            A DTO to show positions hierarchy
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:TulipHR.API.Models.OrgTreeNode`1.Data">
+            <summary>
+            PositionDTO object containing detail of position and employee.
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.OrgTreeNode`1.Children">
+            <summary>
+            List of positions under current node
+            </summary>
+        </member>
+        <member name="T:TulipHR.API.Models.PositionCreationDto">
+            <summary>
+            A DTO for creating new position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionCreationDto.Title">
+            <summary>
+            The Title of the position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionCreationDto.Number">
+            <summary>
+            The number assigned to the position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionCreationDto.ManagerPositionId">
+             <summary>
+            The Id of manager position
+             </summary>
+        </member>
+        <member name="T:TulipHR.API.Models.PositionDto">
+            <summary>
+            A DTO for the Position providing detail of the position and the employee
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionDto.Id">
+            <summary>
+            Unique Id of the Position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionDto.Title">
+            <summary>
+            The Title of the Position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionDto.Number">
+            <summary>
+            The number assigned to the Position
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionDto.ManagerPositionId">
+             <summary>
+            The Id of the manager position
+             </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.PositionDto.IsVacant">
+            <summary>
+            Property indicating if the Position is vacant
+            </summary>
+        </member>
+    </members>
+</doc>
