@@ -81,6 +81,21 @@
             The Id of the manager position
              </summary>
         </member>
+        <member name="P:TulipHR.API.Models.EmployeeCreationDto.FirstName">
+            <summary>
+            The first name of the employee
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.EmployeeCreationDto.LastName">
+            <summary>
+            The last name of the employee
+            </summary>
+        </member>
+        <member name="P:TulipHR.API.Models.EmployeeCreationDto.Number">
+            <summary>
+            The employee number
+            </summary>
+        </member>
         <member name="P:TulipHR.API.Models.EmployeeDTO.Id">
             <summary>
             The Id of the Employee

@@ -37,7 +37,7 @@ namespace TulipHR.API.Migrations
                     FirstName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     Number = table.Column<string>(type: "TEXT", nullable: false),
-                    PositionId = table.Column<int>(type: "INTEGER", nullable: false)
+                    PositionId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,8 +46,7 @@ namespace TulipHR.API.Migrations
                         name: "FK_Employees_Positions_PositionId",
                         column: x => x.PositionId,
                         principalTable: "Positions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.InsertData(

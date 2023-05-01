@@ -26,6 +26,7 @@ namespace TulipHR.API.Services
         {
             _context.Positions.Add(position);
         }
+
         public async Task<Position?> GetPositionAsync(int positionId)
         {
             return await _context.Positions
@@ -58,6 +59,10 @@ namespace TulipHR.API.Services
             return await _context.Employees
                 .Where(p => p.Id == employeeId)
                .FirstOrDefaultAsync();
+        }
+        public void AddEmployee(Employee employee)
+        {
+            _context.Employees.Add(employee);
         }
         public async Task<bool> SaveChangesAsync()
         {

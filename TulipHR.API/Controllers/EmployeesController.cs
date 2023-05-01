@@ -47,7 +47,7 @@ namespace TulipHR.API.Controllers
         /// Get employee detail by Id
         /// </summary>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetEmployee")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<IEnumerable<EmployeeDTO>>> GetEmployee(int id)
@@ -85,6 +85,34 @@ namespace TulipHR.API.Controllers
             _mapper.Map(employee, employeeOld);
             await _positionRepository.SaveChangesAsync();
             return NoContent();
+        }
+
+        /// <summary>
+        /// Create new employee
+        /// </summary>
+        /// <param name="employee"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<Employee>> PostEmployee(EmployeeCreationDto employee)
+        {
+            try
+            {
+
+                var newEmp = _mapper.Map<Entities.Employee>(employee);
+                _positionRepository.AddEmployee(newEmp);
+                await _positionRepository.SaveChangesAsync();
+
+                return CreatedAtRoute(nameof(GetEmployee),
+                     new { id = newEmp.Id },
+                     newEmp);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, $"Exception while creating new employee : {employee.FirstName}");
+                return StatusCode(500, "A problem happened while handling your request");
+            }
         }
 
     }

@@ -11,7 +11,7 @@ using TulipHR.API.DbContexts;
 namespace TulipHR.API.Migrations
 {
     [DbContext(typeof(OrganizationContext))]
-    [Migration("20230501162504_OrgDbInitMigration")]
+    [Migration("20230501183603_OrgDbInitMigration")]
     partial class OrgDbInitMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace TulipHR.API.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("PositionId")
+                    b.Property<int?>("PositionId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -194,9 +194,7 @@ namespace TulipHR.API.Migrations
                 {
                     b.HasOne("TulipHR.API.Entities.Position", "Position")
                         .WithMany()
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PositionId");
 
                     b.Navigation("Position");
                 });

@@ -18,7 +18,7 @@ namespace TulipHR.API.Entities
         public string LastName { get; set; }
         public string Number { get; set; } = string.Empty;
         
-        public int PositionId { get; set; }
+        public int? PositionId { get; set; }
         
         [ForeignKey("PositionId")]
         public Position? Position { get; set; }

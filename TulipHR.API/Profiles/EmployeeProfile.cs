@@ -8,6 +8,7 @@ namespace TulipHR.API.Profiles
           
             CreateMap<Entities.Employee, Models.EmployeeDTO>();
             CreateMap<Models.EmployeeDTO, Entities.Employee>();
+            CreateMap<Models.EmployeeCreationDto, Entities.Employee>();
         }
     }
 }

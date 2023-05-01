@@ -13,6 +13,7 @@ namespace TulipHR.API.Services
         Task<Employee?> GetEmployeeAssignedAsync(int positionId);
         Task<IEnumerable<Employee>> GetEmployeeAsync();
         Task<Employee?> GetEmployeeByIdAsync(int employeeId);
+        void AddEmployee(Employee position);
         Task<bool> SaveChangesAsync();
 
     }
