@@ -64,19 +64,25 @@ namespace TulipHR.API.Controllers
         /// <summary>
         /// Update employee
         /// </summary>
+        /// <param name="id"></param>
         /// <param name="employee"></param>
         /// <returns></returns>
-        [HttpPut]
+        [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<IEnumerable<EmployeeDTO>>> UpdateEmployee(EmployeeDTO employee)
+        public async Task<ActionResult<IEnumerable<EmployeeDTO>>> UpdateEmployee(int id, EmployeeDTO employee)
         {
-            Employee? employeeOld = await _positionRepository.GetEmployeeByIdAsync(employee.Id);
+            Employee? employeeOld = await _positionRepository.GetEmployeeByIdAsync(id);
             if (employeeOld == null)
             {
                 return NotFound();
             }
+            if (id != employee.Id)
+            {
+                return BadRequest("The id in the url does not match the id in the body");
+            }
+
             Employee? employeeWithSamePos = employee.PositionId.HasValue? await _positionRepository.GetEmployeeAssignedAsync(employee.PositionId.Value) : null;
             if (employeeWithSamePos != null && employee.Id != employeeWithSamePos.Id)
             {

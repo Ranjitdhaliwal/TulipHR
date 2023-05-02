@@ -10,6 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
 builder.Logging.AddLog4Net();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(
+               policy => policy.AllowAnyOrigin()
+                      .AllowAnyMethod()
+                             .AllowAnyHeader());
+});
+
 builder.Services.AddControllers(options =>
 {
     // Throw 406 Not acceptable if data format asked for is not supported
@@ -43,7 +51,7 @@ var app = builder.Build();
 
 
 app.UseHttpsRedirection();
-
+app.UseCors();
 app.UseRouting();
 
 app.UseAuthorization();
